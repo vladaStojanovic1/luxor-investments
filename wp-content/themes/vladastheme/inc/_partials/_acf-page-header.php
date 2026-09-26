@@ -49,7 +49,7 @@ function headerHomePage() {
                <div class="row">
                    <div class="col-md-5" >
                        <div class="m-headerHome__fixedText">
-                           <p class="text-yellow d-flex align-items-center fw-semibold mb-3 fst-italic text-nowrap"><span class="line-text me-3"></span> <?php echo $header_smallTitle; ?></p>
+                           <p class="text-white d-flex align-items-center fw-semibold mb-3 fst-italic text-nowrap"><span class="line-text me-3 bg-white"></span> <?php echo $header_smallTitle; ?></p>
                            <h1 data-aos="fade-right"
                                data-aos-offset="100"
                                data-aos-easing="ease-in-sine" class="m-headerHome__fixedText--bigTitle text-uppercase text-white mb-4"><?php echo $header_title; ?></h1>
