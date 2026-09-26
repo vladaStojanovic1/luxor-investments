@@ -53,7 +53,7 @@ $site_logo = get_field('site_logo','options');
                             <h5 id="offcanvasTopLabel">Offcanvas top</h5>
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
-                        <div class="offcanvas-body">
+                        <div class="offcanvas-body mobile-menu-offcanvas">
                             <?php wp_nav_menu( array( 'theme_location' => 'mobile-menu' ) ); ?>
                         </div>
                     </div>

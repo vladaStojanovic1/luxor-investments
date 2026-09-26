@@ -7,10 +7,9 @@
   }
 
   &.-otherPages {
-    min-height: 500px;
+    min-height: 400px;
 
     @include media-up(l) {
-      // min-height: 600px;
       min-height: 500px;
     }
 
@@ -76,6 +75,11 @@
       background-image: linear-gradient(120deg, #292929 25%, #29292900 75%);
       opacity: 0.8;
     }
+  }
+
+  .hero-swiper {
+    position: relative;
+    z-index: 1;
   }
 }
 

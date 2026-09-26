@@ -104,7 +104,7 @@ function headerPage() {
                             yoast_breadcrumb( '<p id="breadcrumbs" class="fw-semibold mt-4">','</p>' );
                         }
                         ?>
-                        <h1 class="text-uppercase text-white lh-1" data-aos="fade-right"
+                        <h1 class="text-uppercase text-white" data-aos="fade-right"
                             data-aos-offset="100"
                             data-aos-easing="ease-in-sine"><?php echo $header_title; ?></h1>
                             <p class="text-white mt-3"><?php echo $header_text; ?></p>

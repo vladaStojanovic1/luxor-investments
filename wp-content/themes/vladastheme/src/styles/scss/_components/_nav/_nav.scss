@@ -88,6 +88,7 @@
 
   .offcanvas-top {
     background-color: $gray-9;
+    height: 320px;
 
     #menu-mobile-menu {
       text-align: center;
@@ -109,5 +110,7 @@
       filter: invert(1);
       opacity: .8;
     }
+ 
+
   }
 }
