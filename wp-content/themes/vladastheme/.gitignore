@@ -1,5 +1,5 @@
 # Ignore compiled css and css map
-style.css
+#style.css
 style.css.map
 src/scripts/scripts.min.js
 src/scripts/scripts.min.js.map
