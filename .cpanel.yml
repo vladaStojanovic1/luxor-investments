@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/luxorinv/public_html/wp-content/themes/vladastheme/
+    - /bin/cp -R wp-content/themes/vladastheme/. $DEPLOYPATH
