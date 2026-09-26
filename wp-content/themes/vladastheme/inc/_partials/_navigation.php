@@ -1,5 +1,8 @@
 <?php
 $site_logo = get_field('site_logo','options');
+$phone = get_field('phone','options');
+$email = get_field('email','options');
+
 ?>
 
 <nav class="m-nav">
@@ -11,8 +14,8 @@ $site_logo = get_field('site_logo','options');
                 </a>
             </div>
 
-            <div class="col-md-6 d-none d-lg-flex">
-                <div class="d-flex jus  tify-content-end">
+            <div class="col-md-6 d-none d-lg-flex justify-content-end">
+                <div class="d-flex ">
                     <div class="d-flex align-items-center me-4">
                         <div class="primary-bg d-flex justify-content-center align-items-center me-3 icon-wrapper">
                             <i class="bi bi-telephone-fill fs-5 secondary-text-color"></i>
@@ -20,7 +23,7 @@ $site_logo = get_field('site_logo','options');
 
                         <div>
                             <p class="mb-0 fs-14 text-muted">Pozovite nas</p>
-                            <a class="primary-text-color fw-bold" href="tel:702-382-6150">062 371 371</a>
+                            <a class="primary-text-color fw-bold" href="tel:<?php echo esc_attr($phone); ?>"><?php echo esc_html($phone); ?></a>
                         </div>
                     </div>
 
@@ -30,7 +33,7 @@ $site_logo = get_field('site_logo','options');
                        </div>
                        <div>
                            <p class="mb-0 fs-14 text-muted">Email adresa</p>
-                           <a class="primary-text-color fw-bold" href="mailto:info@007securityservice.com">luxor.investments.doo@gmail.com</a>
+                           <a class="primary-text-color fw-bold" href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a>
                        </div>
                    </div>
                 </div>
