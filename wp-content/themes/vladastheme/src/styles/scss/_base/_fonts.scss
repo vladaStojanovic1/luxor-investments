@@ -1,0 +1,51 @@
+// Use $font-path from _vars/_base.scss as path to fonts folder or update it here
+// Use https://transfonter.org/ to generate fonts and update font path here
+// Default font path (relative to style.css) is ../fonts (that is value of $font-path)
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$font-path}/OpenSans/OpenSans-Regular.eot');
+    src: url('#{$font-path}/OpenSans/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-path}/OpenSans/OpenSans-Regular.woff2') format('woff2'),
+    url('#{$font-path}/OpenSans/OpenSans-Regular.woff') format('woff'),
+    url('#{$font-path}/OpenSans/OpenSans-Regular.ttf') format('truetype'),
+    url('#{$font-path}/OpenSans/OpenSans-Regular.svg#OpenSans-Regular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$font-path}/OpenSans/OpenSans-Italic.eot');
+    src: url('#{$font-path}/OpenSans/OpenSans-Italic.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-path}/OpenSans/OpenSans-Italic.woff2') format('woff2'),
+    url('#{$font-path}/OpenSans/OpenSans-Italic.woff') format('woff'),
+    url('#{$font-path}/OpenSans/OpenSans-Italic.ttf') format('truetype'),
+    url('#{$font-path}/OpenSans/OpenSans-Italic.svg#OpenSans-Italic') format('svg');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$font-path}/OpenSans/OpenSans-SemiBold.eot');
+    src: url('#{$font-path}/OpenSans/OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-path}/OpenSans/OpenSans-SemiBold.woff2') format('woff2'),
+    url('#{$font-path}/OpenSans/OpenSans-SemiBold.woff') format('woff'),
+    url('#{$font-path}/OpenSans/OpenSans-SemiBold.ttf') format('truetype'),
+    url('#{$font-path}/OpenSans/OpenSans-SemiBold.svg#OpenSans-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$font-path}/OpenSans/OpenSans-Bold.eot');
+    src: url('#{$font-path}/OpenSans/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
+    url('#{$font-path}/OpenSans/OpenSans-Bold.woff2') format('woff2'),
+    url('#{$font-path}/OpenSans/OpenSans-Bold.woff') format('woff'),
+    url('#{$font-path}/OpenSans/OpenSans-Bold.ttf') format('truetype'),
+    url('#{$font-path}/OpenSans/OpenSans-Bold.svg#OpenSans-Bold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}

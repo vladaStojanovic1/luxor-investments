@@ -1,0 +1,59 @@
+.m-footer {
+  padding: 70px 0 0 0;
+
+  @include media-up(l) {
+    padding: 100px 0 0 0;
+  }
+
+  .w-20-lg {
+    @include media-up(l) {
+      width: 22%;
+    }
+  }
+
+  &__logo {
+    width: 100px;
+  }
+
+  &__menu {
+
+    li {
+      margin-bottom: 5px;
+    }
+
+  }
+
+  p, a {
+    color: $gray-5;
+  }
+
+
+  a {
+    color: $gray-5;
+    font-size: 14px;
+    transition: ease-in .2s;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid #4b4949;
+    margin-top: 60px;
+    flex-direction: column;
+
+    @include media-up(l) {
+      margin-top: 100px;
+      flex-direction: row;
+    }
+
+    p, a {
+      font-size: 11px;
+
+      @include media-up(l) {
+        font-size: 13px;
+      }
+    }
+  }
+}

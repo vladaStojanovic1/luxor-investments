@@ -1,0 +1,96 @@
+h1, h2, h3, h4, h5, h6 {
+  color: $headings-color;
+  font-weight: 700;
+  font-family: $headings-font-family;
+  line-height: $headings-line-height;
+  margin-top: $headings-margin-top;
+  margin-bottom: $headings-margin-bottom;
+}
+
+h1 {
+  font-size: $h1-font-size-mobile;
+
+  @include media-up(m) {
+    font-size: $h1-font-size-tablet;
+  }
+
+  @include media-up(xl) {
+    font-size: $h1-font-size-desktop;
+  }
+}
+
+h2 {
+  font-size: $h2-font-size-mobile;
+
+  @include media-up(m) {
+    font-size: $h2-font-size-tablet;
+  }
+
+  @include media-up(xl) {
+    font-size: $h2-font-size-desktop;
+  }
+}
+
+h3 {
+  font-size: $h3-font-size-mobile;
+
+  @include media-up(m) {
+    font-size: $h3-font-size-tablet;
+  }
+
+  @include media-up(xl) {
+    font-size: $h3-font-size-desktop;
+  }
+}
+
+h4 {
+  font-size: $h4-font-size-mobile;
+
+  @include media-up(m) {
+    font-size: $h4-font-size-tablet;
+  }
+
+  @include media-up(xl) {
+    font-size: $h4-font-size-desktop;
+  }
+}
+
+h5 {
+  font-size: $h5-font-size-mobile;
+
+  @include media-up(m) {
+    font-size: $h5-font-size-tablet;
+  }
+
+  @include media-up(xl) {
+    font-size: $h5-font-size-desktop;
+  }
+}
+
+h6 {
+  font-size: $h6-font-size-mobile;
+
+  @include media-up(m) {
+    font-size: $h6-font-size-tablet;
+  }
+
+  @include media-up(xl) {
+    font-size: $h6-font-size-desktop;
+  }
+}
+
+small,
+.small {
+  font-size: $font-size-small;
+  font-weight: normal;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+li {
+  list-style: none;
+}

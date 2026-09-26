@@ -1,0 +1,60 @@
+.m-contact {
+
+  &__icon {
+    min-width: 50px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__form {
+    margin-top: 50px;
+
+    input, label, textarea {
+      width: 100%;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    input, textarea {
+      border: 1px solid transparent;
+      background-color: #F5F5F5;
+      outline: none;
+      padding: 10px;
+      transition: all ease-in .2s;
+      margin-top: 5px;
+
+      &:focus {
+        border-color: $gray-5;
+      }
+    }
+
+    .wpcf7-submit {
+      background-color: $white;
+      color: $primary;
+      display: flex;
+      width: auto;
+      padding: 10px 30px;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: all ease-in .2s;
+      outline: none;
+      border: 1px solid $primary;
+
+      &:hover {
+        background-color: $primary;
+        color: $white;
+      }
+    }
+
+    .wpcf7-not-valid-tip {
+      position: absolute;
+      font-size: 11px;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.m-offers {
+  padding: 70px 0;
+
+  @include media-up(l) {
+    padding: 100px 0;
+  }
+
+  &__item {
+    background-color: $white;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    height: 100%;
+    position: relative;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+    @include media-up(l) {
+      padding: 50px 20px;
+    }
+
+    a {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $gray-9;
+      padding: 10px;
+      line-height: 1;
+      text-transform: uppercase;
+      width: 100%;
+      color: $white;
+      font-weight: 600;
+      transition: all ease .2s;
+
+      &:hover {
+        background-color: $white;
+        color: $black;
+        text-decoration: underline;
+      }
+    }
+
+    img {
+      background-color: $primary;
+      padding: 10px;
+      width: 80px;
+    }
+  }
+}

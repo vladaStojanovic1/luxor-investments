@@ -1,0 +1,932 @@
+.single-apartment {
+    background: #fff;
+    color: #17202c;
+
+
+    .apartment-breadcrumb {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 16px;
+        color: #8a939d;
+
+        a {
+            color: #8a939d;
+            text-decoration: none;
+
+            &:hover {
+                color: #17202c;
+            }
+        }
+
+        span:last-child {
+            color: $primary;
+            font-weight: 700;
+        }
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | TOP
+    |--------------------------------------------------------------------------
+    */
+
+    .apartment-type {
+        margin-bottom: 10px;
+
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+
+        font-size: 13px;
+        font-weight: 600;
+
+        color: #828b96;
+    }
+
+
+    .apartment-title {
+        margin-bottom: 35px;
+
+        font-size: 48px;
+        line-height: 1.05;
+        font-weight: 700;
+    }
+
+
+    .apartment-main-info {
+
+        .apartment-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+
+            > i {
+                font-size: 27px;
+                line-height: 1;
+
+                color: #929ba6;
+            }
+
+            span {
+                display: block;
+                margin-bottom: 3px;
+
+                font-size: 13px;
+
+                color: #8a939d;
+            }
+
+            strong {
+                display: block;
+
+                font-size: 15px;
+
+                color: #17202c;
+            }
+        }
+    }
+
+
+    .apartment-main-btn {
+        min-width: 150px;
+        padding: 14px 24px;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | STATUS
+    |--------------------------------------------------------------------------
+    */
+
+    .status-free {
+        color: #16a765 !important;
+    }
+
+    .status-reserved {
+        color: #c38b00 !important;
+    }
+
+    .status-sold {
+        color: #d44343 !important;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | GALERIJA
+    |--------------------------------------------------------------------------
+    */
+
+    .apartment-gallery {
+        position: relative;
+
+
+        .apartment-main-swiper {
+            position: relative;
+
+            width: 100%;
+            height: 380px;
+
+            overflow: hidden;
+
+            border-radius: 12px;
+
+            .swiper-wrapper,
+            .swiper-slide {
+                height: 100%;
+            }
+
+            .swiper-slide {
+                overflow: hidden;
+            }
+        }
+
+
+        .apartment-gallery-main-link {
+            position: relative;
+
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            cursor: zoom-in;
+
+
+            .apartment-gallery-main-image {
+                display: block;
+
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+            }
+
+
+            .gallery-zoom {
+                position: absolute;
+                z-index: 5;
+
+                right: 18px;
+                bottom: 18px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: 42px;
+                height: 42px;
+
+                background: rgba(255,255,255,.94);
+
+                border-radius: 50%;
+
+                color: #17202c;
+
+                opacity: 0;
+
+                transition:
+                    opacity .2s ease,
+                    transform .2s ease;
+            }
+
+
+            &:hover {
+
+                .gallery-zoom {
+                    opacity: 1;
+                    transform: scale(1.05);
+                }
+            }
+        }
+
+
+        .gallery-count {
+            position: absolute;
+
+            z-index: 30;
+
+            top: 18px;
+            right: 18px;
+
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 9px 14px;
+
+            background: rgba(15,23,42,.88);
+
+            color: #fff;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            pointer-events: none;
+        }
+
+
+        .apartment-swiper-prev,
+        .apartment-swiper-next {
+            position: absolute;
+
+            z-index: 40;
+
+            top: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 44px;
+            height: 44px;
+
+            padding: 0;
+
+            transform: translateY(-50%);
+
+            background: rgba(255,255,255,.95);
+
+            color: #17202c;
+
+            border: 0;
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            box-shadow: 0 3px 12px rgba(0,0,0,.12);
+
+            i {
+                font-size: 20px;
+            }
+        }
+
+
+        .apartment-swiper-prev {
+            left: 12px;
+        }
+
+        .apartment-swiper-next {
+            right: 12px;
+        }
+
+
+        .apartment-gallery-thumbs {
+            display: flex;
+
+            gap: 10px;
+
+            width: 100%;
+
+            margin-top: 14px;
+
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+
+        .apartment-gallery-thumb-item {
+            flex: 0 0 125px;
+
+            width: 125px;
+            height: 85px;
+
+            padding: 0;
+
+            overflow: hidden;
+
+            background: transparent;
+
+            border: 2px solid transparent;
+            border-radius: 8px;
+
+            opacity: .55;
+
+            cursor: pointer;
+
+
+            &:hover {
+                opacity: .9;
+            }
+
+
+            &.active {
+                opacity: 1;
+                border-color: #17202c;
+            }
+
+
+            .apartment-gallery-thumb {
+                display: block;
+
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+            }
+        }
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | TABOVI
+    |--------------------------------------------------------------------------
+    */
+
+    .apartment-content-section {
+        padding-top: 60px;
+    }
+
+
+    .apartment-tabs {
+        display: flex;
+
+        gap: 35px;
+
+        border-bottom: 1px solid #e5e7eb;
+
+        overflow-x: auto;
+
+
+        .apartment-tab {
+            position: relative;
+
+            padding: 15px 0;
+
+            background: transparent;
+
+            border: 0;
+
+            color: #69727d;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            cursor: pointer;
+
+
+            &:hover,
+            &.active {
+                color: #17202c;
+            }
+
+
+            &.active::after {
+                content: "";
+
+                position: absolute;
+
+                left: 0;
+                bottom: -1px;
+
+                width: 100%;
+                height: 2px;
+
+                background: #17202c;
+            }
+        }
+    }
+
+
+    .apartment-tab-panel {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
+
+    .section-title {
+        margin-bottom: 25px;
+
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | DETAILS
+    |--------------------------------------------------------------------------
+    */
+
+    .apartment-details-card {
+        padding: 35px;
+
+        background: #fafafa;
+
+        border: 1px solid #eee;
+        border-radius: 12px;
+
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+
+
+            > i {
+                font-size: 25px;
+
+                color: #929ba6;
+            }
+
+
+            span {
+                display: block;
+
+                margin-bottom: 2px;
+
+                font-size: 13px;
+
+                color: #8a939d;
+            }
+
+
+            strong {
+                display: block;
+
+                font-size: 15px;
+
+                color: #17202c;
+            }
+        }
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | CONTACT
+    |--------------------------------------------------------------------------
+    */
+
+    .apartment-contact-card {
+        position: sticky;
+
+        top: 30px;
+
+        padding: 32px;
+
+        background: #fafafa;
+
+        border: 1px solid #ececec;
+        border-radius: 12px;
+
+
+        .contact-eyebrow {
+            display: block;
+
+            margin-bottom: 6px;
+
+            text-transform: uppercase;
+
+            font-size: 12px;
+
+            color: #7b8490;
+        }
+
+
+        h3 {
+            margin-bottom: 10px;
+
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+
+        p {
+            margin-bottom: 25px;
+
+            color: #646d76;
+
+            line-height: 1.6;
+        }
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | OPIS
+    |--------------------------------------------------------------------------
+    */
+
+    .apartment-description {
+        color: #4e5761;
+
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        padding: 12px 15px;
+
+        background: #fafafa;
+
+        border-radius: 8px;
+
+
+        i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 34px;
+            height: 34px;
+
+            background: #f0f1f2;
+
+            border-radius: 50%;
+        }
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | OSNOVA
+    |--------------------------------------------------------------------------
+    */
+
+    .floor-plan-card {
+        padding: 25px;
+
+        background: #fff;
+
+        border: 1px solid #ececec;
+        border-radius: 12px;
+
+
+        img {
+            width: 100%;
+            height: auto;
+
+            object-fit: contain;
+        }
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | LOKACIJA
+    |--------------------------------------------------------------------------
+    */
+
+    .apartment-location {
+        display: grid;
+
+        grid-template-columns:
+            minmax(0, 1.6fr)
+            minmax(250px, .8fr);
+
+        gap: 20px;
+
+
+        .apartment-location-map {
+            min-height: 360px;
+
+            overflow: hidden;
+
+            border: 1px solid #ececec;
+            border-radius: 12px;
+
+            background: #f5f5f5;
+
+
+            iframe {
+                display: block;
+
+                width: 100% !important;
+                height: 360px !important;
+
+                border: 0;
+            }
+
+
+            p {
+                margin: 0;
+            }
+        }
+
+
+        .apartment-location-description {
+            padding: 30px;
+
+            background: #fafafa;
+
+            border: 1px solid #ececec;
+            border-radius: 12px;
+
+
+            h3 {
+                margin-bottom: 15px;
+
+                font-size: 22px;
+                font-weight: 700;
+            }
+
+
+            p {
+                margin: 0;
+
+                color: #646d76;
+
+                line-height: 1.7;
+            }
+        }
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | SLIČNI STANOVI
+    |--------------------------------------------------------------------------
+    */
+
+    .similar-apartments-section {
+        padding-top: 70px;
+        padding-bottom: 40px;
+
+
+        .similar-apartments-all {
+            color: #17202c;
+
+            font-size: 14px;
+            font-weight: 500;
+
+            text-decoration: none;
+        }
+
+
+        .similar-apartment-card {
+            height: 100%;
+
+            overflow: hidden;
+
+            background: #fff;
+
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+
+
+            &:hover {
+                transform: translateY(-4px);
+
+                box-shadow:
+                    0 12px 30px
+                    rgba(0,0,0,.08);
+            }
+        }
+
+
+        .similar-apartment-image {
+            position: relative;
+
+            height: 180px;
+
+            overflow: hidden;
+
+
+            a {
+                display: block;
+
+                width: 100%;
+                height: 100%;
+            }
+
+
+            img {
+                display: block;
+
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+            }
+        }
+
+
+        .similar-status {
+            position: absolute;
+
+            left: 12px;
+            bottom: 12px;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+
+            padding: 6px 10px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+            font-weight: 600;
+
+
+            > span {
+                width: 6px;
+                height: 6px;
+
+                border-radius: 50%;
+
+                background: currentColor;
+            }
+        }
+
+
+        .similar-status-free {
+            background: #dcfce7;
+            color: #159447;
+        }
+
+
+        .similar-status-reserved {
+            background: #fef3c7;
+            color: #b77900;
+        }
+
+
+        .similar-status-sold {
+            background: #fee2e2;
+            color: #cf3535;
+        }
+
+
+        .similar-apartment-content {
+            padding: 16px;
+
+
+            h3 {
+                margin-bottom: 4px;
+
+                font-size: 18px;
+                font-weight: 700;
+
+
+                a {
+                    color: #17202c;
+
+                    text-decoration: none;
+                }
+            }
+        }
+
+
+        .similar-type {
+            margin-bottom: 8px;
+
+            color: #7c8590;
+
+            font-size: 13px;
+        }
+
+
+        .similar-meta {
+            display: flex;
+
+            gap: 10px;
+
+
+            span {
+                color: #707983;
+
+                font-size: 12px;
+
+
+                + span::before {
+                    content: "|";
+
+                    margin-right: 10px;
+
+                    color: #c6cbd0;
+                }
+            }
+        }
+    }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| RESPONSIVE
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width: 991px) {
+
+    .single-apartment {
+
+        .apartment-title {
+            font-size: 40px;
+        }
+
+
+        .apartment-gallery {
+
+            .apartment-main-swiper {
+                height: 340px;
+            }
+        }
+
+
+        .apartment-contact-card {
+            position: static;
+        }
+    }
+}
+
+
+@media (max-width: 767px) {
+
+    .single-apartment {
+
+        .apartment-title {
+            font-size: 34px;
+        }
+
+
+        .apartment-gallery {
+
+            .apartment-main-swiper {
+                height: 300px;
+            }
+
+
+            .apartment-gallery-thumb-item {
+                flex-basis: 105px;
+
+                width: 105px;
+                height: 72px;
+            }
+        }
+
+
+        .apartment-location {
+            grid-template-columns: 1fr;
+
+
+            .apartment-location-map {
+                min-height: 300px;
+
+
+                iframe {
+                    height: 300px !important;
+                }
+            }
+        }
+
+
+        .apartment-content-section {
+            padding-top: 45px;
+        }
+
+
+        .apartment-details-card {
+            padding: 25px 20px;
+        }
+    }
+}
+
+
+@media (max-width: 575px) {
+
+    .single-apartment {
+
+        .apartment-gallery {
+
+            .apartment-main-swiper {
+                height: 250px;
+            }
+
+
+            .apartment-gallery-thumb-item {
+                flex-basis: 90px;
+
+                width: 90px;
+                height: 65px;
+            }
+        }
+
+
+        .similar-apartments-section {
+
+            .similar-apartment-image {
+                height: 210px;
+            }
+        }
+    }
+}

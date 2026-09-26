@@ -1,0 +1,46 @@
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+// Basic class is _ and up to column number: _1 _2 etc...
+// To break on some breakpoint (like s (576px)), it will be _s1, _s3, _s7...
+
+$grid-breakpoints: (
+        _: 0,
+        xs: 480px,
+        s: 576px,
+        m: 768px,
+        l: 992px,
+        xl: 1200px
+) !default;
+
+@include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
+@include _assert-starts-at-zero($grid-breakpoints);
+
+
+// Grid wrappers
+//
+// Define the maximum width of `.wrapper` for different screen sizes.
+
+$wrapper-max-widths: (
+        s: 540px,
+        m: 720px,
+        l: 960px,
+        xl: 1170px
+) !default;
+
+@include _assert-ascending($wrapper-max-widths, '$wrapper-max-widths');
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns:                12 !default;
+$grid-gutter-width:           30px !default;
+
+$mobile-landscape-width: 560px;
+$mobile-landscape-height: 480px;
+
+$narrow-laptop-width: 992px;
+$narrow-laptop-height: 650px;

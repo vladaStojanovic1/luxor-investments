@@ -1,0 +1,50 @@
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, monospace !default;
+$font-open-sans: 		      'Open Sans', $font-family-sans-serif;
+// stylelint-enable value-keyword-case
+
+$link-color:                  $blue;
+
+$font-size-base:              16px;
+$font-weight-base:            normal;
+
+$font-size-small:             80% !default;
+
+$color-text-base:             $gray-9;
+
+$line-height-base:            1.6 !default;
+
+$h1-font-size-mobile:         48px !default;
+$h2-font-size-mobile:         39px !default;
+$h3-font-size-mobile:         31px !default;
+$h4-font-size-mobile:         25px !default;
+$h5-font-size-mobile:         20px !default;
+$h6-font-size-mobile:         16px !default;
+
+$h1-font-size-tablet:         48px !default;
+$h2-font-size-tablet:         39px !default;
+$h3-font-size-tablet:         31px !default;
+$h4-font-size-tablet:         25px !default;
+$h5-font-size-tablet:         20px !default;
+$h6-font-size-tablet:         16px !default;
+
+$h1-font-size-desktop:        48px !default;
+$h2-font-size-desktop:        39px !default;
+$h3-font-size-desktop:        31px !default;
+$h4-font-size-desktop:        25px !default;
+$h5-font-size-desktop:        20px !default;
+$h6-font-size-desktop:        16px !default;
+
+$headings-margin-bottom:      0 !default;
+$headings-margin-top:         0 !default;
+$headings-font-family:        inherit !default;
+$headings-line-height:        1.2 !default;
+$headings-color:              $blue-dark !default;
+
+// Printing
+$print-page-size:             a3 !default;
+$print-body-min-width:        map-get($grid-breakpoints, 'lg') !default;
+
+// Paragraphs
+$paragraph-margin-bottom:     12px !default;

@@ -1,0 +1,64 @@
+.m-exp {
+  background-size: cover;
+  position: relative;
+  padding: 70px 0;
+
+  @include media-up(l) {
+    padding: 100px 0;
+  }
+
+  .progress-bar-container {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .label {
+    font-weight: 600;
+    color: $white;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  .bar-fill {
+    background-color: $primary;
+    height: 100%;
+    width: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 6px;
+    overflow: visible;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    transition: width 0.3s ease;
+  }
+
+  .bar-bg {
+    background-color: #ddd;
+    height: 10px;
+    position: relative;
+    border-radius: 4px;
+  }
+
+  .bar-text {
+    position: absolute;
+    top: -22px;
+    color: white;
+    right: 0;
+    font-size: 16px;
+  }
+
+  .line-text {
+    width: 100px;
+    height: 10px;
+    background-color: #ffffff;
+  }
+}
+
+
+.page-template-template-services .m-exp.sections-spacing {
+  margin-bottom: 0 !important;
+}

@@ -1,0 +1,13 @@
+#breadcrumbs {
+  span, a {
+    font-size: 20px;
+    color: $white;
+
+    &.breadcrumb_last {
+      color: $secondary;
+      color: #d09b32;
+      text-decoration: underline;
+      text-transform: uppercase;
+    }
+  }
+}
