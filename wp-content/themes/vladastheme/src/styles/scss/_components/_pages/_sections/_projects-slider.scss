@@ -1,0 +1,661 @@
+/* =========================================================
+   FEATURED APARTMENTS
+   Home page
+========================================================= */
+
+.m-featuredApartments {
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+
+  /* =====================================================
+     HEADER
+  ===================================================== */
+
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+
+  &__eyebrow {
+    margin: 0 0 10px;
+    color: #d09b32;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+
+  &__title {
+    margin: 0 0 12px;
+    color: #081426;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+
+  &__description {
+    max-width: 570px;
+    margin: 0;
+    color: #7b8494;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+
+  /* =====================================================
+     NAVIGATION
+  ===================================================== */
+
+  &__navigation {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 10px;
+  }
+
+
+  &__prev,
+  &__next {
+    display: flex;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #dce1e7;
+    border-radius: 50%;
+
+    background: #fff;
+    color: #081426;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
+
+    &:hover {
+      border-color: #081426;
+      background-color: #081426;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.35;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+
+  /* =====================================================
+     SWIPER
+  ===================================================== */
+
+  .featuredApartmentsSwiper {
+    width: 100%;
+    overflow: hidden;
+  }
+
+
+  .swiper-wrapper {
+    align-items: stretch;
+  }
+
+
+  .swiper-slide {
+    display: flex;
+    height: auto;
+  }
+
+
+  /* =====================================================
+     BOTTOM
+  ===================================================== */
+
+  &__bottom {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 28px;
+  }
+
+
+  &__all {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #081426;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+
+    i {
+      transition: transform 0.25s ease;
+    }
+
+    &:hover {
+      color: #d09b32;
+
+      i {
+        transform: translateX(5px);
+      }
+    }
+  }
+}
+
+
+/* =========================================================
+   APARTMENT CARD
+========================================================= */
+
+.featured-apartment {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 1px solid #e1e5ea;
+  border-radius: 8px;
+
+  background-color: #fff;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
+
+  &:hover {
+    border-color: #d4d9df;
+
+    box-shadow:
+      0 15px 40px rgba(8, 20, 38, 0.1);
+
+    transform: translateY(-4px);
+
+    .featured-apartment__img {
+      transform: scale(1.05);
+    }
+
+    .featured-apartment__arrow {
+      background-color: #081426;
+      color: #fff;
+    }
+  }
+
+
+  /* =====================================================
+     IMAGE
+  ===================================================== */
+
+  &__image {
+    position: relative;
+
+    display: block;
+    width: 100%;
+    height: 220px;
+
+    overflow: hidden;
+
+    background-color: #f2f3f5;
+
+    text-decoration: none;
+  }
+
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+  }
+
+
+  &__no-image {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #081426;
+    color: #fff;
+
+    span {
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+  }
+
+
+  /* =====================================================
+     STATUS
+  ===================================================== */
+
+  &__status {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 7px 12px;
+
+    border-radius: 5px;
+
+    background-color: #081426;
+    color: #fff;
+
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: capitalize;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+
+
+    /*
+     * ACF status vrednosti:
+     *
+     * slobodan
+     * rezervisan
+     * prodat
+     */
+
+    &--slobodan {
+      background-color: #43bd7a;
+    }
+
+    &--rezervisan {
+      background-color: #d09b32;
+    }
+
+    &--prodat {
+      background-color: #e75252;
+    }
+  }
+
+
+  /* =====================================================
+     CONTENT
+  ===================================================== */
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    padding: 18px;
+  }
+
+
+  /* =====================================================
+     LOCATION
+  ===================================================== */
+
+  &__location {
+    display: flex;
+    min-height: 20px;
+    align-items: center;
+    gap: 7px;
+
+    margin-bottom: 10px;
+
+    color: #8b93a1;
+
+    font-size: 12px;
+    line-height: 1.4;
+
+    i {
+      flex-shrink: 0;
+      color: #d09b32;
+      font-size: 14px;
+    }
+  }
+
+
+  /* =====================================================
+     TITLE
+  ===================================================== */
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-bottom: 16px;
+  }
+
+
+  &__title {
+    margin: 0;
+
+    color: #081426;
+
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      transition: color 0.25s ease;
+
+      &:hover {
+        color: #d09b32;
+      }
+    }
+  }
+
+
+  &__arrow {
+    display: flex;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #e1e5ea;
+    border-radius: 50%;
+
+    color: #081426;
+
+    font-size: 14px;
+    text-decoration: none;
+
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
+
+    &:hover {
+      border-color: #081426;
+      background-color: #081426;
+      color: #fff;
+      transform: translateX(2px);
+    }
+  }
+
+
+  /* =====================================================
+     DETAILS
+  ===================================================== */
+
+  &__details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    margin-top: auto;
+    padding-top: 15px;
+
+    border-top: 1px solid #edf0f3;
+  }
+
+
+  &__detail {
+    position: relative;
+
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 8px;
+
+    padding: 0 10px;
+
+    /*
+     * separator između podataka
+     */
+    &:not(:last-child) {
+      border-right: 1px solid #edf0f3;
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+
+    > i {
+      flex: 0 0 auto;
+
+      color: #d09b32;
+
+      font-size: 17px;
+    }
+
+
+    > div {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+    }
+
+
+    span {
+      display: block;
+
+      margin-bottom: 2px;
+
+      color: #a0a7b2;
+
+      font-size: 9px;
+      line-height: 1.2;
+    }
+
+
+    strong {
+      display: block;
+
+      overflow: hidden;
+
+      color: #081426;
+
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.3;
+
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1199.98px) {
+
+  .m-featuredApartments {
+
+    &__title {
+      font-size: 36px;
+    }
+  }
+
+
+  .featured-apartment {
+
+    &__image {
+      height: 210px;
+    }
+  }
+}
+
+
+@media (max-width: 991.98px) {
+
+  .m-featuredApartments {
+
+    &__header {
+      margin-bottom: 30px;
+    }
+
+
+    &__title {
+      font-size: 32px;
+    }
+
+
+    &__description {
+      max-width: 500px;
+    }
+  }
+
+
+  .featured-apartment {
+
+    &__image {
+      height: 230px;
+    }
+  }
+}
+
+
+@media (max-width: 767.98px) {
+
+  .m-featuredApartments {
+
+    &__header {
+      align-items: center;
+      gap: 20px;
+    }
+
+
+    &__title {
+      font-size: 30px;
+    }
+
+
+    &__description {
+      font-size: 15px;
+    }
+
+
+    &__prev,
+    &__next {
+      width: 42px;
+      height: 42px;
+    }
+  }
+}
+
+
+@media (max-width: 575.98px) {
+
+  .m-featuredApartments {
+
+    &__header {
+      position: relative;
+
+      display: block;
+
+      padding-bottom: 60px;
+    }
+
+
+    &__eyebrow {
+      font-size: 11px;
+    }
+
+
+    &__title {
+      font-size: 28px;
+    }
+
+
+    &__description {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+
+    &__navigation {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+
+    &__bottom {
+      justify-content: flex-start;
+      margin-top: 22px;
+    }
+  }
+
+
+  .featured-apartment {
+
+    &__image {
+      height: 240px;
+    }
+
+
+    &__content {
+      padding: 18px;
+    }
+
+
+    &__title {
+      font-size: 18px;
+    }
+
+
+    &__details {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    &__detail {
+      gap: 6px;
+      padding: 0 8px;
+
+      > i {
+        font-size: 15px;
+      }
+
+      span {
+        font-size: 8px;
+      }
+
+      strong {
+        font-size: 11px;
+      }
+    }
+  }
+}
