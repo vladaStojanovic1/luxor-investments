@@ -9,6 +9,7 @@ get_header(); ?>
         ?>
 
         <main id="main" class="page-main site-main" role="main">
+            <?php include(get_template_directory() . '/template-parts/sections/o-nama.php'); ?>
             <?php include(get_template_directory() . '/template-parts/sections/why.php'); ?>
             <?php include(get_template_directory() . '/template-parts/sections/call.php'); ?>
 

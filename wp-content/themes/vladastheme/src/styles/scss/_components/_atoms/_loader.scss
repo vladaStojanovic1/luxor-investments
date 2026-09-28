@@ -1,0 +1,103 @@
+$loader-color: #0a1225;
+$loader-size: 1.1px;
+
+.loader {
+  position: relative;
+
+  width: 55 * $loader-size;
+  height: 55 * $loader-size;
+
+  background-repeat: no-repeat;
+
+  background-image:
+    linear-gradient($loader-color 50 * $loader-size, transparent 0),
+    linear-gradient($loader-color 50 * $loader-size, transparent 0),
+    linear-gradient($loader-color 50 * $loader-size, transparent 0),
+    linear-gradient($loader-color 50 * $loader-size, transparent 0),
+    linear-gradient($loader-color 50 * $loader-size, transparent 0),
+    linear-gradient($loader-color 50 * $loader-size, transparent 0);
+
+  background-size:
+    5 * $loader-size
+    40 * $loader-size;
+
+  background-position:
+    0 center,
+    10 * $loader-size center,
+    20 * $loader-size center,
+    30 * $loader-size center,
+    40 * $loader-size center,
+    50 * $loader-size center;
+
+  animation: spikeUp 1s linear infinite alternate;
+}
+
+
+@keyframes spikeUp {
+
+  0% {
+    background-size:
+      5 * $loader-size
+      40 * $loader-size;
+  }
+
+  16% {
+    background-size:
+      5 * $loader-size 55 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size;
+  }
+
+  33% {
+    background-size:
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 55 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size;
+  }
+
+  50% {
+    background-size:
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 55 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size;
+  }
+
+  66% {
+    background-size:
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 55 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size;
+  }
+
+  83% {
+    background-size:
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 55 * $loader-size,
+      5 * $loader-size 40 * $loader-size;
+  }
+
+  100% {
+    background-size:
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 40 * $loader-size,
+      5 * $loader-size 55 * $loader-size;
+  }
+}

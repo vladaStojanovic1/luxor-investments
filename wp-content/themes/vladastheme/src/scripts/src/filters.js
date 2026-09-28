@@ -172,8 +172,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
 
-        loader.style.display = 'block';
-        results.style.opacity = '0.4';
+        // loader.style.display = 'block';
+        // results.style.opacity = '0.4';
+        loader.style.display = 'flex';
+        results.style.display = 'none';
 
 
         fetch(stanoviAjax.ajax_url, {
@@ -185,8 +187,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         .then(response => {
 
+            // loader.style.display = 'none';
+            // results.style.opacity = '1';
             loader.style.display = 'none';
-            results.style.opacity = '1';
+            results.style.display = '';
 
 
             if (response.success) {

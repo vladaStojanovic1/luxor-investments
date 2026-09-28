@@ -930,3 +930,72 @@
         }
     }
 }
+
+@media (max-width: 991.98px) {
+
+    #apartmentsFilters {
+        width: 82vw;
+        max-width: 300px;
+
+        background: #fff;
+
+        .offcanvas-body {
+            padding: 20px;
+        }
+
+        .apartments-filters {
+            border: 0 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+    }
+}
+
+
+.apartments-filter-mobile {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1030;
+}
+
+.apartments-filter-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 50px;
+    padding: 0 22px;
+
+    background-color: #0a1225;
+    border: 1px solid #0a1225;
+    border-radius: 6px;
+
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+
+    // box-shadow: 0 6px 20px rgba(10, 18, 37, 0.2);
+
+    transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+     box-shadow:
+        0 4px 10px rgba(10, 18, 37, 0.18),
+        0 10px 30px rgba(10, 18, 37, 0.28);
+
+    i {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 992px) {
+    .apartments-filter-mobile {
+        display: none;
+    }
+}

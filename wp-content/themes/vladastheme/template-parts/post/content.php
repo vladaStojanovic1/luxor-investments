@@ -221,14 +221,14 @@ if ($current_post instanceof WP_Post) :
 
                     <?php if ($type_name) : ?>
 
-                        <div class="apartment-type">
+                        <div class="apartment-type d-lg-none">
                             <?php echo esc_html($type_name); ?>
                         </div>
 
                     <?php endif; ?>
 
 
-                    <h1 class="apartment-title">
+                    <h1 class="apartment-title d-lg-none">
                         <?php echo esc_html(get_the_title($post_id)); ?>
                     </h1>
 
