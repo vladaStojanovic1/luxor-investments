@@ -16,9 +16,9 @@
                 "id": ""
             },
             "choices": {
-                "u_izgradnji": "U izgradnji",
-                "uskoro": "Uskoro",
-                "zavrsen": "Završen"
+                "U izgradnji: U izgradnji": "U izgradnji: U izgradnji",
+                "Uskoro: Uskoro": "Uskoro: Uskoro",
+                "Zavrsen": "Završen"
             },
             "default_value": false,
             "allow_null": 0,
@@ -171,5 +171,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1789929135
+    "modified": 1792009490
 }

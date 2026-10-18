@@ -305,7 +305,7 @@
 
 
                 <!-- SUMMARY -->
-                <div class="apartments-summary d-flex align-items-center gap-3 mt-4">
+                <div class="apartments-summary d-flex align-items-center gap-3 mt-4 mb-5">
 
                     <div class="flex-grow-1 border-top"></div>
 

@@ -1,6 +1,7 @@
 <?php wp_footer();?>
 <?php
-$site_logo = get_field('site_logo','options');
+// $site_logo = get_field('site_logo','options');
+$logo_white = get_field('logo_white','options');
 $phone = get_field('phone','options');
 $email = get_field('email','options');
 $address = get_field('address','options');
@@ -15,7 +16,7 @@ $footer_left_text = get_field('footer_left_text','options');
        <div class="row">
            <div class="col-md-3 me-lg-auto text-center text-md-start mb-5 mb-md-0">
                <div>
-                   <img class='m-footer__logo' src="<?php echo $site_logo; ?>" alt="logo-protecta"  data-aos="flip-up" data-aos-easing="ease-in-sine">
+                   <img class='m-footer__logo' src="<?php echo $logo_white; ?>" alt="logo-protecta"  data-aos="flip-up" data-aos-easing="ease-in-sine">
                    <p class="mb-0 mt-4 fs-14 m-footer__leftText"><?php echo $footer_left_text; ?></p>
 
                    <div class="mt-4">
