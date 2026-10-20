@@ -34,7 +34,7 @@ while (have_posts()) :
     if (!$short_description && $opis_projekta) {
         $short_description = wp_trim_words(
             wp_strip_all_tags($opis_projekta),
-            20
+            40
         );
     }
 

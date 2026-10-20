@@ -156,7 +156,7 @@ function luxor_project_status_label($status) {
                         $galerija         = get_field('galerija', $project_id);
                         $status_projekta  = get_field('status_projekta', $project_id);
 
-                        $status_label = luxor_project_status_label($status_projekta);
+                        $status_label = $status_projekta;
 
                         /*
                          * Broj fotografija u galeriji.

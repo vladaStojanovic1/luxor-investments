@@ -16,15 +16,15 @@
                 "id": ""
             },
             "choices": {
-                "U izgradnji: U izgradnji": "U izgradnji: U izgradnji",
-                "Uskoro: Uskoro": "Uskoro: Uskoro",
-                "Zavrsen": "Završen"
+                "u_izgradnji": "U izgradnji",
+                "uskoro": "Uskoro",
+                "zavrsen": "Završen"
             },
             "default_value": false,
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
-            "return_format": "value",
+            "return_format": "label",
             "ajax": 0,
             "placeholder": ""
         },
@@ -171,5 +171,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1792009490
+    "modified": 1792530496
 }
