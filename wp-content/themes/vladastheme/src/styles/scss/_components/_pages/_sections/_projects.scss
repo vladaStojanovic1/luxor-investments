@@ -362,14 +362,15 @@ $mobile-small: 420px;
         display: flex;
         align-items: center;
         justify-content: center;
-
         width: 100%;
         height: 100%;
         min-height: 335px;
+        // background: #0a1225;
 
-        color: #8a949f;
+        h4 {
+            color: #0a1225;
+        }
 
-        background: #eef0f2;
     }
 
 

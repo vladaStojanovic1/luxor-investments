@@ -8,6 +8,7 @@
 
   &.-otherPages {
     min-height: 400px;
+    background-position: center;
 
     @include media-up(l) {
       min-height: 500px;

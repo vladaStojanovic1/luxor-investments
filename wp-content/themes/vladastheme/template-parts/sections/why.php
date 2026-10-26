@@ -34,10 +34,10 @@ $why_item_6 = get_field('why_item_6');
                          data-aos-offset="100"
                          data-aos-easing="ease-in-sine">
                         <div class="m-aboutUs__image -second" style="background-image: url(<?php echo $why_image2; ?>)">
-                            <div class="m-aboutUs__image--whiteBox">
+                            <!-- <div class="m-aboutUs__image--whiteBox">
                                 <h1 class="text-yellow mb-2 counterOne"><?php echo $why_number; ?></h1>
                                 <p class="mb-0"><?php echo $why_number_text; ?></p>
-                            </div>
+                            </div> -->
                             <!-- <div class="overlay-2"></div> -->
                         </div>
                     </div>

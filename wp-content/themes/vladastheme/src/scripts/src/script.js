@@ -134,49 +134,49 @@
         });
 
          // GSAP Counter animation
-        if (document.body.classList.contains('home') || document.body.classList.contains('page-template-template-home') || document.body.classList.contains('page-template-template-o-investitoru')) {
-            gsap.registerPlugin(ScrollTrigger);
+        // if (document.body.classList.contains('home') || document.body.classList.contains('page-template-template-home') || document.body.classList.contains('page-template-template-o-investitoru')) {
+        //     gsap.registerPlugin(ScrollTrigger);
 
-            let mm = gsap.matchMedia();
+        //     let mm = gsap.matchMedia();
 
-            // gsap.from(".counterOne", {
-            //     textContent: "0",
-            //     duration: 4,
-            //     modifiers: {
-            //         textContent: value => formatNumber(value, 0) + "+"
-            //     },
-            //     // snap: { textContent: 1 },
-            //     scrollTrigger: {
-            //         trigger: ".m-aboutUs",
-            //         start: "top bottom",
-            //     }
-            // });
+        //     // gsap.from(".counterOne", {
+        //     //     textContent: "0",
+        //     //     duration: 4,
+        //     //     modifiers: {
+        //     //         textContent: value => formatNumber(value, 0) + "+"
+        //     //     },
+        //     //     // snap: { textContent: 1 },
+        //     //     scrollTrigger: {
+        //     //         trigger: ".m-aboutUs",
+        //     //         start: "top bottom",
+        //     //     }
+        //     // });
 
-            gsap.utils.toArray(".counter-section").forEach(section => {
-                const counters = section.querySelectorAll(".counterOne");
+        //     gsap.utils.toArray(".counter-section").forEach(section => {
+        //         const counters = section.querySelectorAll(".counterOne");
 
-                counters.forEach(counter => {
-                    gsap.from(counter, {
-                            textContent: "0",
-                            duration: 4,
-                            modifiers: {
-                                textContent: value => formatNumber(value, 0) + "+"
-                            },
-                            scrollTrigger: {
-                                trigger: section,
-                                start: "top bottom",
-                            }
-                        }
-                    );
-                });
-            });
+        //         counters.forEach(counter => {
+        //             gsap.from(counter, {
+        //                     textContent: "0",
+        //                     duration: 4,
+        //                     modifiers: {
+        //                         textContent: value => formatNumber(value, 0) + "+"
+        //                     },
+        //                     scrollTrigger: {
+        //                         trigger: section,
+        //                         start: "top bottom",
+        //                     }
+        //                 }
+        //             );
+        //         });
+        //     });
 
 
-            function formatNumber(value, decimals) {
-                let s = (value).toLocaleString('en-US').split(".");
-                return decimals ? s[0] + "." + ((s[1] || "") + "00000000").substr(0, decimals) : s[0];
-            }
-        }
+        //     function formatNumber(value, decimals) {
+        //         let s = (value).toLocaleString('en-US').split(".");
+        //         return decimals ? s[0] + "." + ((s[1] || "") + "00000000").substr(0, decimals) : s[0];
+        //     }
+        // }
 
         gsap.registerPlugin(ScrollTrigger);
         document.querySelectorAll('.bar-fill').forEach(bar => {

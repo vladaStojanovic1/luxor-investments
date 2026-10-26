@@ -70,7 +70,7 @@
                                     'posts_per_page' => -1,
                                     'post_status'    => 'publish',
                                     'orderby'        => 'title',
-                                    'order'          => 'ASC',
+                                    'order'          => 'DESC',
                                 ]);
 
                                 foreach ($projects as $project) :

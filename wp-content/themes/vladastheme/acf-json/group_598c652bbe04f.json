@@ -173,8 +173,8 @@
         },
         {
             "key": "field_681f6ad5533e2",
-            "label": "Twitter Icon Url",
-            "name": "twitter_icon_url",
+            "label": "Whatsapp Icon Url",
+            "name": "whatsapp_icon_url",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -184,7 +184,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "default_value": "",
             "placeholder": "",
             "prepend": "",
@@ -210,5 +209,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1792326091
+    "modified": 1793049044
 }

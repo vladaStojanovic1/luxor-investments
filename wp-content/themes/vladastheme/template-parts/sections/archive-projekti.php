@@ -17,7 +17,7 @@ $projekti = new WP_Query([
     'posts_per_page' => -1,
     'orderby'        => [
         'menu_order' => 'ASC',
-        'date'       => 'DESC',
+        'date'       => 'ASC',
     ],
 ]);
 
@@ -216,7 +216,7 @@ function luxor_project_status_label($status) {
                                     <?php else : ?>
 
                                         <div class="project-card__placeholder">
-                                            <span>Nema fotografije</span>
+                                            <h5>Projekat u izgradnji</h5>
                                         </div>
 
                                     <?php endif; ?>

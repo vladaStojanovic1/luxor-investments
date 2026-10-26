@@ -7,7 +7,7 @@ $email = get_field('email','options');
 $address = get_field('address','options');
 $fb_icon_url = get_field('fb_icon_url','options');
 $instagram_icon_url = get_field('instagram_icon_url','options');
-$twitter_icon_url = get_field('twitter_icon_url','options');
+$whatsapp_icon_url = get_field('whatsapp_icon_url','options');
 $footer_left_text = get_field('footer_left_text','options');
 
 ?>
@@ -20,29 +20,51 @@ $footer_left_text = get_field('footer_left_text','options');
                    <p class="mb-0 mt-4 fs-14 m-footer__leftText"><?php echo $footer_left_text; ?></p>
 
                    <div class="mt-4">
-                       <a href="<?php echo $fb_icon_url ?>" class="text-white me-3"><i class="bi bi-facebook fs-4 text-yellow"></i></a>
-                       <a href="<?php echo $instagram_icon_url ?>" class="text-white me-3"><i class="bi bi-twitter fs-4 text-yellow"></i></a>
-                       <a href="<?php echo $twitter_icon_url ?>" class="text-white me-3"><i class="bi bi-instagram fs-4 text-yellow"></i></a>
+                       <a href="https://wa.me/<?php echo esc_attr($phone); ?>" target="_blank" class="text-white me-3"><i class="bi bi-whatsapp fs-5"></i></a>
+                       <a href="<?php echo $instagram_icon_url ?>" target="_blank" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
                    </div>
                </div>
            </div>
 
            <div class="col-md-3 w-20-lg">
                <div class="m-footer__menu text-center text-md-start mb-5 mb-md-0">
-                   <h5 class="text-uppercase text-white mb-3 mb-md-4">Quick links</h5>
+                   <h5 class="text-uppercase text-white mb-3 mb-md-4">Istražite</h5>
                    <?php wp_nav_menu( array( 'theme_location' => 'desktop-menu' ) ); ?>
                </div>
            </div>
 
            <div class="col-md-3 w-20-lg text-center text-md-start mb-5 mb-md-0">
-               <h5 class="text-uppercase text-white mb-3 mb-md-4">Our Services</h5>
+               <h5 class="text-uppercase text-white mb-3 mb-md-4">Nasi projekti</h5>
                <div class="m-footer__menu">
-                   <?php wp_nav_menu( array( 'theme_location' => 'services' ) ); ?>
+
+                        <?php
+                        $projekti = new WP_Query(array(
+                            'post_type'      => 'projekti',
+                            'posts_per_page' => -1,
+                            'post_status'    => 'publish',
+                            'orderby'        => 'date',
+                            'order'          => 'ASC'
+                        ));
+
+                        if ($projekti->have_posts()) : ?>
+                            <ul class="footer-menu">
+                                <?php while ($projekti->have_posts()) : $projekti->the_post(); ?>
+                                    <li>
+                                        <a href="<?php the_permalink(); ?>">
+                                            <?php the_title(); ?>
+                                        </a>
+                                    </li>
+                                <?php endwhile; ?>
+                            </ul>
+                        <?php endif;
+
+                        wp_reset_postdata();
+                        ?>
                </div>
            </div>
 
            <div class="col-md-3 w-20-lg text-center text-md-start">
-               <h5 class="text-uppercase text-white mb-3 mb-md-4">Contact us</h5>
+               <h5 class="text-uppercase text-white mb-3 mb-md-4">Kontaktirajte nas</h5>
                <div>
                    <div class="d-flex align-items-center mb-1 mb-md-2 justify-content-center justify-content-md-start">
                        <i class="bi bi-geo-alt-fill text-white me-3 fs-5"></i>

@@ -23,10 +23,10 @@ $about_us_btn = get_field('about_us_btn');
                      data-aos-easing="ease-in-sine">
                     <div class="m-aboutUs__image -bigger" style="background-image: url(<?php echo $about_us_image; ?>)">
                         <span class="corner bottom-left"></span>
-                        <div class="m-aboutUs__image--whiteBox">
+                        <!-- <div class="m-aboutUs__image--whiteBox">
                             <h1 class="primary-text-color mb-2 counterOne"><?php echo $about_us_years ?></h1>
                             <p class="mb-0"><?php echo $about_us_text ?></p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 $site_logo = get_field('site_logo','options');
 $phone = get_field('phone','options');
 $email = get_field('email','options');
+$instagram_icon_url = get_field('instagram_icon_url','options');
 
 ?>
 
@@ -62,8 +63,8 @@ $email = get_field('email','options');
 
                     <div class="d-flex align-items-center m-nav__social">
                         <!-- <a href="https://www.facebook.com/?>" class="text-white me-3"><i class="bi bi-facebook fs-5"></i></a> -->
-                        <a href="https://wa.me/<?php echo esc_attr($phone); ?>" class="text-white me-3"><i class="bi bi-whatsapp fs-5"></i></a>
-                        <a href="https://www.instagram.com/" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="https://wa.me/<?php echo esc_attr($phone); ?>" target="_blank" class="text-white me-3"><i class="bi bi-whatsapp fs-5"></i></a>
+                        <a href="<?php echo $instagram_icon_url ?>" target="_blank" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
                     </div>
 
                 </div>
