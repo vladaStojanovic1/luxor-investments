@@ -8,7 +8,7 @@ get_header(); ?>
         headerPage();
         ?>
 
-        <main id="main" class="page-main site-main" role="main">\
+        <main id="main" class="page-main site-main" role="main">
             <?php include(get_template_directory() . '/template-parts/sections/contact.php'); ?>
             <?php include(get_template_directory() . '/template-parts/sections/call.php'); ?>
 

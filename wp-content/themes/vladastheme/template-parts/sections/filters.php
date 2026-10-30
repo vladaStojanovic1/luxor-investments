@@ -1,3 +1,4 @@
+<?php $luxor_initial_page = isset( $_GET['stanovi_strana'] ) && is_scalar( $_GET['stanovi_strana'] ) ? absint( $_GET['stanovi_strana'] ) : 1; $luxor_initial = luxor_apartments_result( $_GET, $luxor_initial_page ); $luxor_url_filters = luxor_apartment_filters( $_GET ); ?>
 <section class="apartments-section">
     <div class="container">
 
@@ -58,6 +59,7 @@
                     <div class="offcanvas-body">
 
                         <div class="apartments-filters bg-white border rounded-4 p-4 shadow-sm w-100 mb-5">
+                            <form id="luxor-apartment-filters" method="get" action="<?php echo esc_url( get_permalink() ); ?>"><noscript><button type="submit" class="btn btn-dark mb-3">Prikaži izabrane stanove</button></noscript></form>
 
                             <!-- PROJEKAT -->
                             <div class="filter-group border-bottom pb-4 mb-4">
@@ -79,11 +81,11 @@
                                     <div class="form-check">
 
                                         <input
-                                            class="form-check-input apartment-filter"
+                                            class="form-check-input apartment-filter" form="luxor-apartment-filters"
                                             type="checkbox"
                                             name="projekat[]"
                                             value="<?php echo esc_attr($project->ID); ?>"
-                                            id="project-<?php echo esc_attr($project->ID); ?>"
+                                            id="project-<?php echo esc_attr($project->ID); ?>" <?php checked( in_array( (int) $project->ID, $luxor_url_filters['projekat'], true ) ); ?>
                                         >
 
                                         <label
@@ -118,11 +120,11 @@
                                     <div class="form-check">
 
                                         <input
-                                            class="form-check-input apartment-filter"
+                                            class="form-check-input apartment-filter" form="luxor-apartment-filters"
                                             type="checkbox"
                                             name="tip_stana[]"
                                             value="<?php echo esc_attr($type->slug); ?>"
-                                            id="type-<?php echo esc_attr($type->term_id); ?>"
+                                            id="type-<?php echo esc_attr($type->term_id); ?>" <?php checked( in_array( $type->slug, $luxor_url_filters['tip_stana'], true ) ); ?>
                                         >
 
                                         <label
@@ -152,11 +154,11 @@
                                     <div class="form-check">
 
                                         <input
-                                            class="form-check-input apartment-filter"
+                                            class="form-check-input apartment-filter" form="luxor-apartment-filters"
                                             type="checkbox"
                                             name="sprat[]"
                                             value="<?php echo $i; ?>"
-                                            id="floor-<?php echo $i; ?>"
+                                            id="floor-<?php echo $i; ?>" <?php checked( in_array( (int) $i, $luxor_url_filters['sprat'], true ) ); ?>
                                         >
 
                                         <label
@@ -181,10 +183,10 @@
                                 <div class="form-check">
 
                                     <input
-                                        class="form-check-input apartment-filter"
+                                        class="form-check-input apartment-filter" form="luxor-apartment-filters"
                                         type="checkbox"
                                         name="status[]"
-                                        value="slobodan"
+                                        value="slobodan" <?php checked( in_array( 'slobodan', $luxor_url_filters['status'], true ) ); ?>
                                         id="status-free"
                                     >
 
@@ -201,10 +203,10 @@
                                 <div class="form-check">
 
                                     <input
-                                        class="form-check-input apartment-filter"
+                                        class="form-check-input apartment-filter" form="luxor-apartment-filters"
                                         type="checkbox"
                                         name="status[]"
-                                        value="rezervisan"
+                                        value="rezervisan" <?php checked( in_array( 'rezervisan', $luxor_url_filters['status'], true ) ); ?>
                                         id="status-reserved"
                                     >
 
@@ -221,10 +223,10 @@
                                 <div class="form-check">
 
                                     <input
-                                        class="form-check-input apartment-filter"
+                                        class="form-check-input apartment-filter" form="luxor-apartment-filters"
                                         type="checkbox"
                                         name="status[]"
-                                        value="prodat"
+                                        value="prodat" <?php checked( in_array( 'prodat', $luxor_url_filters['status'], true ) ); ?>
                                         id="status-sold"
                                     >
 
@@ -278,7 +280,7 @@
                     <div
                         id="apartments-count"
                         class="badge bg-light text-dark rounded-pill px-3 py-2"
-                    ></div>
+                    ><?php echo esc_html( 'Pronađeno: ' . $luxor_initial['count'] ); ?></div>
 
                 </div>
 
@@ -300,8 +302,9 @@
                 <div
                     id="apartments-results"
                     class="row g-4"
-                >
+                ><?php echo $luxor_initial['html']; // Escaped by the shared card renderer. ?>
                 </div>
+                <div id="apartments-pagination"><?php echo $luxor_initial['pagination']; ?></div>
 
 
                 <!-- SUMMARY -->
@@ -313,7 +316,7 @@
                         id="apartments-summary-text"
                         class="small text-muted text-nowrap"
                     >
-                        Prikazano 0 od 0 stanova
+                        <?php echo esc_html( 'Prikazano ' . $luxor_initial['shown'] . ' od ' . $luxor_initial['count'] . ' stanova' ); ?>
                     </div>
 
                     <div class="flex-grow-1 border-top"></div>

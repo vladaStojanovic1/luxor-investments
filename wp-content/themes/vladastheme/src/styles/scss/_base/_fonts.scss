@@ -4,6 +4,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: swap;
     src: url('#{$font-path}/OpenSans/OpenSans-Regular.eot');
     src: url('#{$font-path}/OpenSans/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
     url('#{$font-path}/OpenSans/OpenSans-Regular.woff2') format('woff2'),
@@ -16,6 +17,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: swap;
     src: url('#{$font-path}/OpenSans/OpenSans-Italic.eot');
     src: url('#{$font-path}/OpenSans/OpenSans-Italic.eot?#iefix') format('embedded-opentype'),
     url('#{$font-path}/OpenSans/OpenSans-Italic.woff2') format('woff2'),
@@ -28,6 +30,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: swap;
     src: url('#{$font-path}/OpenSans/OpenSans-SemiBold.eot');
     src: url('#{$font-path}/OpenSans/OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
     url('#{$font-path}/OpenSans/OpenSans-SemiBold.woff2') format('woff2'),
@@ -40,6 +43,7 @@
 
 @font-face {
     font-family: 'Open Sans';
+    font-display: swap;
     src: url('#{$font-path}/OpenSans/OpenSans-Bold.eot');
     src: url('#{$font-path}/OpenSans/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
     url('#{$font-path}/OpenSans/OpenSans-Bold.woff2') format('woff2'),

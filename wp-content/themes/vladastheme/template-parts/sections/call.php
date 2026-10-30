@@ -43,7 +43,7 @@ if (is_array($call_button)) {
     <?php if ($call_background) : ?>
         <div
             class="overlay-1"
-            style="background-image: url('<?php echo esc_url($call_background); ?>');">
+            style="background-image: url('<?php echo esc_url( luxor_image_url( $call_background, 1440 ) ); ?>');">
         </div>
     <?php endif; ?>
 
@@ -71,7 +71,7 @@ if (is_array($call_button)) {
 
                     <?php if ($phone) : ?>
 
-                        <h1 class="lh-1">
+                        <h2 class="h1 lh-1">
 
                             <a
                                 class="text-white text-decoration-underline"
@@ -81,7 +81,7 @@ if (is_array($call_button)) {
 
                             </a>
 
-                        </h1>
+                        </h2>
 
                     <?php endif; ?>
 
@@ -98,13 +98,13 @@ if (is_array($call_button)) {
 
                     <?php if ($call_title) : ?>
 
-                        <h1
-                            class="text-uppercase text-white lh-1 mb-4"
+                        <h2
+                            class="h1 text-uppercase text-white lh-1 mb-4"
                             data-aos="fade-left">
 
                             <?php echo esc_html($call_title); ?>
 
-                        </h1>
+                        </h2>
 
                     <?php endif; ?>
 

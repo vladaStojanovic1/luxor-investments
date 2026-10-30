@@ -11,7 +11,7 @@ $offer_text = get_field('offer_text');
             <div class="col-lg-7" data-aos="fade-down">
                 <div class="text-center">
                     <p class="primary-text-color fw-semibold mb-3 fst-italic "> <?php echo $offer_small_title ?></p>
-                    <h1 class="text-uppercase lh-1 mb-4"><?php echo $offer_title ?></h1>
+                    <h2 class="h1 text-uppercase lh-1 mb-4"><?php echo $offer_title ?></h2>
                     <p><?php echo $offer_text ?></p>
                 </div>
             </div>

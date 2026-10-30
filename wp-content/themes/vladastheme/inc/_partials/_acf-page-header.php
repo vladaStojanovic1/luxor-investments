@@ -50,10 +50,8 @@ function headerHomePage() {
                    <div class="col-md-5" >
                        <div class="m-headerHome__fixedText">
                            <p class="text-white d-flex align-items-center fw-semibold mb-3 fst-italic text-nowrap"><span class="line-text me-3 bg-white"></span> <?php echo $header_smallTitle; ?></p>
-                           <h1 data-aos="fade-right"
-                               data-aos-offset="100"
-                               data-aos-easing="ease-in-sine" class="m-headerHome__fixedText--bigTitle text-uppercase text-white mb-4"><?php echo $header_title; ?></h1>
-                           <p class="text-white" data-aos="fade-up" data-aos-offset="0"><?php echo $header_text; ?></p>
+                           <h1 class="m-headerHome__fixedText--bigTitle text-uppercase text-white mb-4"><?php echo esc_html( $header_title ?: get_the_title() ); ?></h1>
+                           <p class="text-white"><?php echo wp_kses_post( $header_text ); ?></p>
                             <div class="mt-5 d-flex align-items-center">
                                 <a class="a-btn -primary me-3" href="<?php echo $header_button_1['url']; ?>"><?php echo $header_button_1['title']; ?></a>
                                 <a class="a-btn -secondary" href="<?php echo $header_button_2['url']; ?>"><?php echo $header_button_2['title']; ?></a>
@@ -65,14 +63,14 @@ function headerHomePage() {
 
            <!-- Slides -->
            <div class="swiper-wrapper">
-               <div class="swiper-slide" style="background-image: url(<?php echo $header_image ?>);"></div>
-               <div class="swiper-slide" style="background-image: url(<?php echo $header_image2 ?>);"></div>
+               <div class="swiper-slide"><?php luxor_picture( $header_image, 'full', array( 'class' => 'luxor-hero-image', 'alt' => '', 'sizes' => '100vw', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?></div>
+               <div class="swiper-slide"><?php luxor_picture( $header_image2, 'full', array( 'class' => 'luxor-hero-image', 'alt' => '', 'sizes' => '100vw', 'loading' => 'lazy', 'fetchpriority' => 'low' ) ); ?></div>
            </div>
        </div>
 
 
 
-       <a href="#scroll" class="scroll-btn">
+       <a href="#scroll" class="scroll-btn" aria-label="Pređi na sadržaj">
            <div class="chevron"></div>
            <div class="chevron"></div>
            <div class="chevron"></div>
@@ -94,7 +92,7 @@ function headerPage() {
 
     ?>
 
-    <header class="m-headerHome -otherPages position-relative sections-spacing overlay-3" style="background-image: url(<?php echo $header_image; ?>)">
+    <header class="m-headerHome -otherPages position-relative sections-spacing overlay-3" style="background-image: url(<?php echo esc_url( luxor_image_url( $header_image, 1600 ) ); ?>)">
 
         <div class="container">
             <div class="row">
@@ -104,17 +102,15 @@ function headerPage() {
                             yoast_breadcrumb( '<p id="breadcrumbs" class="fw-semibold mt-4">','</p>' );
                         }
                         ?>
-                        <h1 class="text-uppercase text-white" data-aos="fade-right"
-                            data-aos-offset="100"
-                            data-aos-easing="ease-in-sine"><?php echo $header_title; ?></h1>
-                            <p class="text-white mt-3"><?php echo $header_text; ?></p>
+                        <h1 class="text-uppercase text-white"><?php echo esc_html( $header_title ?: get_the_title() ); ?></h1>
+                            <p class="text-white mt-3"><?php echo wp_kses_post( $header_text ); ?></p>
                         <!-- <span class="line-text-2 mt-4"></span> -->
                     </div>
                 </div>
             </div>
         </div>
 
-        <a href="#scroll" class="scroll-btn">
+        <a href="#scroll" class="scroll-btn" aria-label="Pređi na sadržaj">
             <div class="chevron"></div>
             <div class="chevron"></div>
             <div class="chevron"></div>

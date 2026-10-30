@@ -35,7 +35,7 @@ $why_item_6 = get_field('why_item_6');
                          data-aos-easing="ease-in-sine">
                         <div class="m-aboutUs__image -second" style="background-image: url(<?php echo $why_image2; ?>)">
                             <!-- <div class="m-aboutUs__image--whiteBox">
-                                <h1 class="text-yellow mb-2 counterOne"><?php echo $why_number; ?></h1>
+                                <h2 class="h1 text-yellow mb-2 counterOne"><?php echo $why_number; ?></h2>
                                 <p class="mb-0"><?php echo $why_number_text; ?></p>
                             </div> -->
                             <!-- <div class="overlay-2"></div> -->
@@ -49,7 +49,7 @@ $why_item_6 = get_field('why_item_6');
                  data-aos-easing="ease-in-sine">
                 <div>
                     <p class="primary-text-color d-flex align-items-center fw-semibold mb-3 fst-italic text-nowrap"><span class="line-text me-3 dark-bg"></span> <?php echo $why_right_subtitle; ?></p>
-                    <h1 class="text-uppercase lh-1 mb-4"><?php echo $why_right_title; ?></h1>
+                    <h2 class="h1 text-uppercase lh-1 mb-4"><?php echo $why_right_title; ?></h2>
                     <p><?php echo $why_right_text; ?></p>
 
                     <div class="mt-4 mt-lg-5 d-flex justify-content-between border-light-lg pt-lg-5 column-gap-20">

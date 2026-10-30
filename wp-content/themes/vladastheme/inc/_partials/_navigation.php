@@ -11,7 +11,7 @@ $instagram_icon_url = get_field('instagram_icon_url','options');
         <div class="row justify-content-between align-items-center">
             <div class="col-lg-3 text-lg-start text-center">
                 <a href="/" class="m-nav__logo">
-                    <img src="<?php echo $site_logo; ?>" alt="">
+                    <?php luxor_picture( $site_logo, 'medium', array( 'alt' => get_bloginfo( 'name' ), 'sizes' => '135px', 'loading' => 'eager' ) ); ?>
                 </a>
             </div>
 
@@ -24,7 +24,7 @@ $instagram_icon_url = get_field('instagram_icon_url','options');
 
                         <div>
                             <p class="mb-0 fs-14 text-muted">Pozovite nas</p>
-                            <a class="primary-text-color fw-bold" href="tel:<?php echo esc_attr($phone); ?>"><?php echo esc_html($phone); ?></a>
+                            <a class="primary-text-color fw-bold" href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>"><?php echo esc_html($phone); ?></a>
                         </div>
                     </div>
 
@@ -48,13 +48,13 @@ $instagram_icon_url = get_field('instagram_icon_url','options');
                         <?php wp_nav_menu( array( 'theme_location' => 'desktop-menu', 'menu_class' => 'd-flex', )); ?>
                     </div>
 
-                    <button class="d-lg-none hamburger-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                    <button class="d-lg-none hamburger-icon" type="button" aria-label="Otvori glavni meni" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
                         <i class="bi bi-grid-3x3-gap fs-2 text-white"></i>
                     </button>
 
                     <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                        <div class="offcanvas-header">
-                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <div class="offcanvas-header"><h2 id="offcanvasTopLabel" class="visually-hidden">Glavni meni</h2>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Zatvori meni"></button>
                         </div>
                         <div class="offcanvas-body mobile-menu-offcanvas">
                             <?php wp_nav_menu( array( 'theme_location' => 'mobile-menu' ) ); ?>
@@ -63,8 +63,8 @@ $instagram_icon_url = get_field('instagram_icon_url','options');
 
                     <div class="d-flex align-items-center m-nav__social">
                         <!-- <a href="https://www.facebook.com/?>" class="text-white me-3"><i class="bi bi-facebook fs-5"></i></a> -->
-                        <a href="https://wa.me/<?php echo esc_attr($phone); ?>" target="_blank" class="text-white me-3"><i class="bi bi-whatsapp fs-5"></i></a>
-                        <a href="<?php echo $instagram_icon_url ?>" target="_blank" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="<?php echo esc_url( luxor_whatsapp_url( $phone ) ); ?>" aria-label="WhatsApp — otvara novi prozor" target="_blank" rel="noopener noreferrer" class="text-white me-3"><i class="bi bi-whatsapp fs-5"></i></a>
+                        <a href="<?php echo esc_url( $instagram_icon_url ) ?>" aria-label="Instagram — otvara novi prozor" target="_blank" rel="noopener noreferrer" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
                     </div>
 
                 </div>

@@ -1,14 +1,3 @@
-<?php
-/**
- * The template for displaying 404 pages (not found)
- *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
- * @package ftheme
- */
-
-get_header(); ?>
-
-
-<?php
-get_footer(); ?>
+<?php get_header(); get_template_part( 'inc/_partials/_navigation' ); ?>
+<main id="main" class="container py-5"><h1>Stranica nije pronađena</h1><p>Proverite adresu ili se vratite na početnu stranicu.</p><p><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Početna stranica</a></p><?php get_search_form(); ?></main>
+<?php get_footer(); ?>

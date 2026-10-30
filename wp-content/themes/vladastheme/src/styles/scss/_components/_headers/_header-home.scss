@@ -9,6 +9,7 @@
   &.-otherPages {
     min-height: 400px;
     background-position: center;
+    background-repeat: no-repeat;
 
     @include media-up(l) {
       min-height: 500px;
@@ -170,3 +171,9 @@
     opacity: 1;
   }
 }
+// Real responsive images retain the previous cover crop, overlay and slide dimensions.
+.m-headerHome .swiper-slide > .luxor-picture { display: block; position: absolute; inset: 0; }
+.m-headerHome .swiper-slide .luxor-hero-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: left center; }
+@media (min-width: 576px) { .m-headerHome .swiper-slide .luxor-hero-image { object-position: center; } }
+
+.m-footer .luxor-picture > .m-footer__logo { height: auto; }

@@ -3,8 +3,9 @@
  * Single Projekat
  */
 
-include(get_template_directory() . '/inc/_partials/_navigation.php');
 get_header();
+get_template_part( 'inc/_partials/_navigation' );
+echo '<main id="main" class="site-main">';
 
 while (have_posts()) :
     the_post();
@@ -1004,5 +1005,6 @@ $phone_link = $phone ? preg_replace('/[^0-9+]/', '', $phone) : '';
 <?php
 endwhile;
 
+echo '</main>';
 get_footer();
 ?>

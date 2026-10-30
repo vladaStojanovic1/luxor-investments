@@ -1,275 +1,68 @@
 document.addEventListener('DOMContentLoaded', function () {
-
-    const filters = document.querySelectorAll('.apartment-filter');
+    'use strict';
     const results = document.querySelector('#apartments-results');
+    if (!results || typeof stanoviAjax === 'undefined') { return; }
+    const filters = document.querySelectorAll('.apartment-filter');
     const loader = document.querySelector('#apartments-loader');
     const count = document.querySelector('#apartments-count');
-    const summaryText = document.querySelector('#apartments-summary-text');
-    const resetButton = document.querySelector('#reset-apartment-filters');
-
+    const summary = document.querySelector('#apartments-summary-text');
+    const pagination = document.querySelector('#apartments-pagination');
+    const reset = document.querySelector('#reset-apartment-filters');
     const storageKey = 'luxor_apartment_filters';
-
-
-    function getCheckedValues(name) {
-
-        return Array.from(
-            document.querySelectorAll(`input[name="${name}"]:checked`)
-        ).map(input => input.value);
-
+    const keys = ['tip_stana', 'sprat', 'projekat', 'status'];
+    let controller, sequence = 0;
+    const feedback = document.createElement('p'); feedback.className = 'small text-muted'; feedback.setAttribute('role', 'status'); results.before(feedback);
+    results.setAttribute('aria-live', 'polite');
+    function values(key) { return Array.from(filters).filter(input => input.name === key + '[]' && input.checked).map(input => input.value); }
+    function save() {
+        const data = {}; keys.forEach(key => { data[key] = values(key); });
+        try { localStorage.setItem(storageKey, JSON.stringify(data)); } catch (error) { /* Session remains usable when storage is blocked. */ }
     }
-
-
-    function saveFilters() {
-
-        const savedFilters = {
-            tip_stana: getCheckedValues('tip_stana[]'),
-            sprat: getCheckedValues('sprat[]'),
-            projekat: getCheckedValues('projekat[]'),
-            status: getCheckedValues('status[]')
-        };
-
-        localStorage.setItem(
-            storageKey,
-            JSON.stringify(savedFilters)
-        );
-
+    function busy(active) {
+        results.setAttribute('aria-busy', String(active)); results.style.opacity = active ? '0.5' : '1'; results.style.display = '';
+        if (loader) { loader.style.display = active ? 'flex' : 'none'; }
     }
-
-
-    function restoreFilters() {
-
-        const saved = localStorage.getItem(storageKey);
-
-        if (!saved) {
-            return false;
-        }
-
-        let savedFilters;
-
-        try {
-            savedFilters = JSON.parse(saved);
-        } catch (error) {
-            console.error('Greška pri čitanju filtera:', error);
-            localStorage.removeItem(storageKey);
-            return false;
-        }
-
-
-        // Prvo poništi sve checkboxove
-        filters.forEach(filter => {
-            filter.checked = false;
-        });
-
-
-        // Tip stana
-        if (savedFilters.tip_stana) {
-
-            savedFilters.tip_stana.forEach(value => {
-
-                const input = document.querySelector(
-                    `input[name="tip_stana[]"][value="${value}"]`
-                );
-
-                if (input) {
-                    input.checked = true;
-                }
-
-            });
-
-        }
-
-
-        // Sprat
-        if (savedFilters.sprat) {
-
-            savedFilters.sprat.forEach(value => {
-
-                const input = document.querySelector(
-                    `input[name="sprat[]"][value="${value}"]`
-                );
-
-                if (input) {
-                    input.checked = true;
-                }
-
-            });
-
-        }
-
-
-        // Projekat
-        if (savedFilters.projekat) {
-
-            savedFilters.projekat.forEach(value => {
-
-                const input = document.querySelector(
-                    `input[name="projekat[]"][value="${value}"]`
-                );
-
-                if (input) {
-                    input.checked = true;
-                }
-
-            });
-
-        }
-
-
-        // Status
-        if (savedFilters.status) {
-
-            savedFilters.status.forEach(value => {
-
-                const input = document.querySelector(
-                    `input[name="status[]"][value="${value}"]`
-                );
-
-                if (input) {
-                    input.checked = true;
-                }
-
-            });
-
-        }
-
-
-        return true;
-
-    }
-
-
-    function loadApartments() {
-
-        const tipStana = getCheckedValues('tip_stana[]');
-        const sprat = getCheckedValues('sprat[]');
-        const projekat = getCheckedValues('projekat[]');
-        const status = getCheckedValues('status[]');
-
-
-        const formData = new FormData();
-
-        formData.append('action', 'filter_stanovi');
-        formData.append('nonce', stanoviAjax.nonce);
-
-
-        tipStana.forEach(value => {
-            formData.append('tip_stana[]', value);
-        });
-
-
-        sprat.forEach(value => {
-            formData.append('sprat[]', value);
-        });
-
-
-        projekat.forEach(value => {
-            formData.append('projekat[]', value);
-        });
-
-
-        status.forEach(value => {
-            formData.append('status[]', value);
-        });
-
-
-        // loader.style.display = 'block';
-        // results.style.opacity = '0.4';
-        loader.style.display = 'flex';
-        results.style.display = 'none';
-
-
-        fetch(stanoviAjax.ajax_url, {
-            method: 'POST',
-            body: formData
-        })
-
-        .then(response => response.json())
-
-        .then(response => {
-
-            // loader.style.display = 'none';
-            // results.style.opacity = '1';
-            loader.style.display = 'none';
-            results.style.display = '';
-
-
-            if (response.success) {
-
+    function load(page) {
+        if (controller) { controller.abort(); }
+        controller = new AbortController(); const request = ++sequence;
+        const data = new FormData(); data.append('action', 'filter_stanovi'); data.append('nonce', stanoviAjax.nonce); data.append('page', String(page || 1));
+        keys.forEach(key => values(key).forEach(value => data.append(key + '[]', value)));
+        busy(true); feedback.textContent = 'Učitavanje stanova…';
+        let timedOut = false; const activeController = controller; const timer = setTimeout(function () { timedOut = true; activeController.abort(); }, 15000);
+        fetch(stanoviAjax.ajax_url, {method: 'POST', body: data, signal: controller.signal, cache: 'no-store'})
+            .then(response => { if (!response.ok) { throw new Error('HTTP ' + response.status); } return response.json(); })
+            .then(response => {
+                if (request !== sequence) { return; }
+                if (!response.success || !response.data || typeof response.data.html !== 'string') { throw new Error('Neispravan odgovor'); }
                 results.innerHTML = response.data.html;
-
-                count.innerHTML =
-                    `Pronađeno: <strong>${response.data.count}</strong>`;
-                    
-                summaryText.innerHTML =
-                    `Prikazano <strong>${response.data.count}</strong> od <strong>${response.data.count}</strong> stanova`;    
-
-            } else {
-
-                results.innerHTML = `
-                    <div class="col-12">
-                        <p>Nema pronađenih stanova.</p>
-                    </div>
-                `;
-
-                count.innerHTML = 'Pronađeno: 0';
-
-            }
-
-        })
-
-        .catch(error => {
-
-            console.error(error);
-
-            loader.style.display = 'none';
-            results.style.opacity = '1';
-
-        });
-
+                if (count) { count.textContent = 'Pronađeno: ' + response.data.count; }
+                if (summary) { summary.textContent = 'Prikazano ' + response.data.shown + ' od ' + response.data.count + ' stanova'; }
+                if (pagination) { pagination.innerHTML = response.data.pagination || ''; }
+                feedback.textContent = response.data.count ? '' : 'Nema stanova za izabrane kriterijume.';
+                busy(false);
+            })
+            .catch(error => {
+                if (request !== sequence || (error.name === 'AbortError' && !timedOut)) { return; }
+                busy(false); feedback.textContent = 'Filter trenutno nije dostupan. Prethodni rezultati su sačuvani; pokušajte ponovo ili osvežite stranicu.';
+            }).finally(function () { clearTimeout(timer); });
     }
-
-
-    /*
-     * Kada se promeni bilo koji filter
-     */
-    filters.forEach(filter => {
-
-        filter.addEventListener('change', function () {
-
-            saveFilters();
-
-            loadApartments();
-
+    filters.forEach(input => input.addEventListener('change', function () { save(); load(1); }));
+    if (pagination) { pagination.addEventListener('click', function (event) {
+        const link = event.target.closest('a[data-apartment-page]');
+        if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) { return; }
+        event.preventDefault(); load(Number(link.dataset.apartmentPage));
+    }); }
+    if (reset) { reset.addEventListener('click', function () { filters.forEach(input => { input.checked = false; }); try { localStorage.removeItem(storageKey); } catch (error) {} load(1); }); }
+    // Explicit URL state (including pagination) takes priority over remembered filters.
+    const query = new URLSearchParams(location.search);
+    let restored = null, explicit = keys.some(key => query.has(key) || query.has(key + '[]')) || query.has('stanovi_strana');
+    if (explicit) {
+        restored = {}; keys.forEach(key => { restored[key] = query.getAll(key + '[]').concat(query.getAll(key));
+            for (const [name, value] of query.entries()) { if (name.startsWith(key + '[') && name !== key + '[]') { restored[key].push(value); } }
         });
-
-    });
-
-
-    /*
-     * Poništi filtere
-     */
-    if (resetButton) {
-
-        resetButton.addEventListener('click', function () {
-
-            filters.forEach(filter => {
-                filter.checked = false;
-            });
-
-            localStorage.removeItem(storageKey);
-
-            loadApartments();
-
-        });
-
+    } else { try { restored = JSON.parse(localStorage.getItem(storageKey)); } catch (error) { restored = null; } }
+    if (restored && typeof restored === 'object' && !Array.isArray(restored)) {
+        filters.forEach(input => { const key = input.name.replace('[]', ''); input.checked = Array.isArray(restored[key]) && restored[key].map(String).indexOf(input.value) !== -1; });
+        if (!explicit && keys.some(key => values(key).length)) { load(1); }
     }
-
-
-    /*
-     * Pri prvom učitavanju stranice
-     */
-    restoreFilters();
-
-    loadApartments();
-
 });

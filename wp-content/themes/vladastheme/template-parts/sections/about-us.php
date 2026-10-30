@@ -21,10 +21,10 @@ $about_us_btn = get_field('about_us_btn');
                 <div data-aos="fade-right"
                      data-aos-offset="100"
                      data-aos-easing="ease-in-sine">
-                    <div class="m-aboutUs__image -bigger" style="background-image: url(<?php echo $about_us_image; ?>)">
+                    <div class="m-aboutUs__image -bigger" style="background-image: url(<?php echo esc_url( luxor_image_url( $about_us_image, 960 ) ); ?>)">
                         <span class="corner bottom-left"></span>
                         <!-- <div class="m-aboutUs__image--whiteBox">
-                            <h1 class="primary-text-color mb-2 counterOne"><?php echo $about_us_years ?></h1>
+                            <h2 class="h1 primary-text-color mb-2 counterOne"><?php echo $about_us_years ?></h2>
                             <p class="mb-0"><?php echo $about_us_text ?></p>
                         </div> -->
                     </div>
@@ -36,7 +36,7 @@ $about_us_btn = get_field('about_us_btn');
                  data-aos-easing="ease-in-sine">
                 <div>
                     <p class="primary-text-color d-flex align-items-center fw-semibold mb-3 fst-italic text-nowrap"><span class="line-text me-3 dark-bg"></span> O nama</p>
-                    <h1 class="text-uppercase lh-1 mb-4"><?php echo $about_us_right_title; ?></h1>
+                    <h2 class="h1 text-uppercase lh-1 mb-4"><?php echo $about_us_right_title; ?></h2>
                     <p><?php echo $about_us_right_text; ?></p>
 
                     <div class="row d-flex mt-5 m-aboutUs__iconsBox flex-column flex-md-row">

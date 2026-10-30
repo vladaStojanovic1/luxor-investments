@@ -17,7 +17,7 @@ $contact_google_map = get_field('contact_google_map');
                  data-aos-offset="100"
                  data-aos-easing="ease-in-sine">
                 <p class="primary-text-color d-flex align-items-center fw-semibold mb-2 fst-italic text-nowrap"><span class="line-text me-3 dark-bg"></span> <?php echo $contact_small_title; ?></p>
-                <h1 class="text-uppercase lh-1 mb-4"><?php echo $contact_title; ?></h1>
+                <h2 class="h1 text-uppercase lh-1 mb-4"><?php echo $contact_title; ?></h2>
                 <p><?php echo $contact_text; ?></p>
 
                 <div class="m-contact__form">

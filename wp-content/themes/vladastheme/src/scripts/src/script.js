@@ -124,6 +124,7 @@
         }));
 
 
+        if (typeof Swiper !== 'undefined' && document.querySelector('.hero-swiper')) {
         const swiper = new Swiper('.hero-swiper', {
             loop: true,
             autoplay: {
@@ -132,6 +133,7 @@
             },
             effect: 'slide',
         });
+        }
 
          // GSAP Counter animation
         // if (document.body.classList.contains('home') || document.body.classList.contains('page-template-template-home') || document.body.classList.contains('page-template-template-o-investitoru')) {
@@ -178,6 +180,7 @@
         //     }
         // }
 
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
         document.querySelectorAll('.bar-fill').forEach(bar => {
             const percent = bar.getAttribute('data-percent');
@@ -202,7 +205,8 @@
         });
 
 
-        AOS.init();
+        }
+        if (typeof AOS !== 'undefined') { AOS.init(); }
 
 
     });

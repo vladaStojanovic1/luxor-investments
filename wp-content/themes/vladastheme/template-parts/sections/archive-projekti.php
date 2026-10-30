@@ -3,7 +3,7 @@
  * Archive template za CPT: Projekti
  */
 
-get_header();
+
 
 /**
  * Učitavamo sve projekte.
@@ -717,6 +717,3 @@ $phone_link = $phone ? preg_replace('/[^0-9+]/', '', $phone) : '';
 
     </div>
 </section>
-
-
-<?php get_footer(); ?>

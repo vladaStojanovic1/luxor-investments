@@ -1,4 +1,4 @@
-<?php wp_footer();?>
+
 <?php
 // $site_logo = get_field('site_logo','options');
 $logo_white = get_field('logo_white','options');
@@ -15,13 +15,13 @@ $footer_left_text = get_field('footer_left_text','options');
     <div class="container">
        <div class="row">
            <div class="col-md-3 me-lg-auto text-center text-md-start mb-5 mb-md-0">
-               <div>
-                   <img class='m-footer__logo' src="<?php echo $logo_white; ?>" alt="logo-protecta"  data-aos="flip-up" data-aos-easing="ease-in-sine">
-                   <p class="mb-0 mt-4 fs-14 m-footer__leftText"><?php echo $footer_left_text; ?></p>
+               <div class='text-center'>
+                   <?php luxor_picture( $logo_white, 'medium', array( 'class' => 'm-footer__logo', 'alt' => get_bloginfo( 'name' ), 'sizes' => '100px', 'loading' => 'lazy', 'data-aos' => 'flip-up', 'data-aos-easing' => 'ease-in-sine' ) ); ?>
+                   <p class="mb-0 mt-4 fs-14 m-footer__leftText"><?php echo wp_kses_post( $footer_left_text ); ?></p>
 
                    <div class="mt-4">
-                       <a href="https://wa.me/<?php echo esc_attr($phone); ?>" target="_blank" class="text-white me-3"><i class="bi bi-whatsapp fs-5"></i></a>
-                       <a href="<?php echo $instagram_icon_url ?>" target="_blank" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
+                       <a href="<?php echo esc_url( luxor_whatsapp_url( $phone ) ); ?>" aria-label="WhatsApp — otvara novi prozor" target="_blank" rel="noopener noreferrer" class="text-white me-3"><i class="bi bi-whatsapp fs-5"></i></a>
+                       <a href="<?php echo esc_url( $instagram_icon_url ); ?>" aria-label="Instagram — otvara novi prozor" target="_blank" rel="noopener noreferrer" class="text-white me-3"><i class="bi bi-instagram fs-5"></i></a>
                    </div>
                </div>
            </div>
@@ -68,15 +68,15 @@ $footer_left_text = get_field('footer_left_text','options');
                <div>
                    <div class="d-flex align-items-center mb-1 mb-md-2 justify-content-center justify-content-md-start">
                        <i class="bi bi-geo-alt-fill text-white me-3 fs-5"></i>
-                       <a class="fs-14" target="_blank" href="<?php echo $address; ?>"><?php echo $address; ?></a>
+                       <a class="fs-14" target="_blank" rel="noopener noreferrer" href="<?php echo esc_url( luxor_address_url( $address ) ); ?>"><?php echo esc_html( $address ); ?></a>
                    </div>
                    <div class="d-flex align-items-center mb-1 mb-md-2 justify-content-center justify-content-md-start">
                        <i class="bi bi-telephone-fill text-white me-3 fs-5"></i>
-                       <a class="fs-14" href="tel:<?php echo $phone; ?>"><?php echo $phone; ?></a>
+                       <a class="fs-14" href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>"><?php echo esc_html( $phone ); ?></a>
                    </div>
                    <div class="d-flex align-items-center justify-content-center justify-content-md-start">
                        <i class="bi bi-envelope-at-fill text-white me-3 fs-5"></i>
-                       <a class="fs-14" href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
+                       <a class="fs-14" href="mailto:<?php echo esc_attr( sanitize_email( $email ) ); ?>"><?php echo esc_html( $email ); ?></a>
                    </div>
                </div>
            </div>
@@ -89,7 +89,7 @@ $footer_left_text = get_field('footer_left_text','options');
             <div class="d-flex align-items-center justify-content-between py-3 py-md-4 m-footer__bottom">
                 <p class="mb-2 mb-md-0">All rights reserved | Luxor Investments</p>
 
-                <a class="d-flex align-center" target="_blank"
+                <a class="d-flex align-center" target="_blank" rel="noopener noreferrer"
                    href="https://www.instagram.com/vladaasto">&copy;<?php echo date('Y') ?> Created
                     and hosted by
                     <svg xmlns="http://www.w3.org/2000/svg" class="ms-2 icon icon-tabler icon-tabler-brand-instagram" width="20"
@@ -108,5 +108,7 @@ $footer_left_text = get_field('footer_left_text','options');
 
 </footer>
 
+</div><!-- #page -->
+<?php wp_footer(); ?>
 </body>
 </html>
