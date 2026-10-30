@@ -34,13 +34,17 @@ global $globalSite;
 
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
-    <!--Favicon-->
-    <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri() . '/src/images/favicon/favicon-96x96.png'; ?>" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="<?php echo get_template_directory_uri() . '/src/images/favicon/favicon.svg'; ?>" />
-    <link rel="shortcut icon" href="<?php echo get_template_directory_uri() . '/src/images/favicon/favicon.ico'; ?>" />
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri() . '/src/images/favicon/apple-touch-icon.png'; ?>" />
-    <meta name="apple-mobile-web-app-title" content="Vojkan ALU & PVC" />
-    <link rel="manifest" href="<?php echo get_template_directory_uri() . '/src/images/favicon/site.webmanifest'; ?>" />
+    <?php if ( ! has_site_icon() ) :
+        $favicon_uri = get_template_directory_uri() . '/src/images/favicon/';
+    ?>
+    <link rel="icon" type="image/x-icon" href="<?php echo esc_url( $favicon_uri . 'favicon.ico' ); ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url( $favicon_uri . 'favicon-32x32.png' ); ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url( $favicon_uri . 'favicon-16x16.png' ); ?>">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo esc_url( $favicon_uri . 'favicon-96x96.png' ); ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url( $favicon_uri . 'apple-touch-icon.png' ); ?>">
+    <meta name="apple-mobile-web-app-title" content="Luxor Investments">
+    <link rel="manifest" href="<?php echo esc_url( $favicon_uri . 'site.webmanifest' ); ?>">
+    <?php endif; ?>
 </head>
 
 <body <?php body_class(); ?>>
