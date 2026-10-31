@@ -34,7 +34,7 @@ $footer_left_text = get_field('footer_left_text','options');
            </div>
 
            <div class="col-md-3 w-20-lg text-center text-md-start mb-5 mb-md-0">
-               <h5 class="text-uppercase text-white mb-3 mb-md-4">Nasi projekti</h5>
+               <h5 class="text-uppercase text-white mb-3 mb-md-4">Naši projekti</h5>
                <div class="m-footer__menu">
 
                         <?php
