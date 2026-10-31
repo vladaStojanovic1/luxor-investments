@@ -74,7 +74,7 @@ if (is_array($call_button)) {
                         <h2 class="h1 lh-1">
 
                             <a
-                                class="text-white text-decoration-underline"
+                                class="text-white"
                                 href="tel:<?php echo esc_attr($phone); ?>">
 
                                 <?php echo esc_html($phone); ?>
