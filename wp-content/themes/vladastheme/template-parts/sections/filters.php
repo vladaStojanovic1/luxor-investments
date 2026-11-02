@@ -114,6 +114,15 @@
                                 ]);
 
                                 if (!is_wp_error($types)) :
+                                    $type_order = array_flip(array(
+                                        'garsonjera', 'jednosoban', 'dvosoban',
+                                        'trosoban', 'cetvorosoban', 'petosoban',
+                                    ));
+                                    usort($types, static function ($first, $second) use ($type_order) {
+                                        $first_rank = $type_order[sanitize_title($first->name)] ?? PHP_INT_MAX;
+                                        $second_rank = $type_order[sanitize_title($second->name)] ?? PHP_INT_MAX;
+                                        return ($first_rank <=> $second_rank) ?: strnatcasecmp($first->name, $second->name);
+                                    });
                                     foreach ($types as $type) :
                                 ?>
 
